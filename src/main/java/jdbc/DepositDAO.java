@@ -14,7 +14,9 @@ public class DepositDAO implements DAO<Deposit> {
 
     @Override
     public Deposit get(int id) throws SQLException {
-        PreparedStatement statement = ConnectionPool.getConnection().prepareStatement(resourceBundle.getString("Deposit.id"));
+        PreparedStatement statement = ConnectionPool
+                .getConnection()
+                .prepareStatement(resourceBundle.getString("Deposit.id"));
         statement.setInt(1,id);
         ResultSet resultSet =  statement.executeQuery();
         return new Deposit(resultSet);
@@ -22,7 +24,9 @@ public class DepositDAO implements DAO<Deposit> {
 
     @Override
     public List<Deposit> getAll() throws SQLException {
-        PreparedStatement statement = ConnectionPool.getConnection().prepareStatement(resourceBundle.getString("Deposit.all"));
+        PreparedStatement statement = ConnectionPool
+                .getConnection()
+                .prepareStatement(resourceBundle.getString("Deposit.all"));
         ResultSet resultSet =  statement.executeQuery();
         List<Deposit>list= new ArrayList<>();
         while(resultSet.next()){

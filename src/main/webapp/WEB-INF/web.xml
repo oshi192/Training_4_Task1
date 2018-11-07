@@ -7,7 +7,7 @@
          version="3.1">
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>web.Main</servlet-class>
+    <servlet-class>web.MainServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>

@@ -14,7 +14,9 @@ public class CreditDAO implements DAO<Credit> {
 
     @Override
     public Credit get(int id) throws SQLException {
-            PreparedStatement statement = ConnectionPool.getConnection().prepareStatement(resourceBundle.getString("Credit.id"));
+            PreparedStatement statement = ConnectionPool
+                    .getConnection()
+                    .prepareStatement(resourceBundle.getString("Credit.id"));
             statement.setInt(1,id);
             ResultSet resultSet =  statement.executeQuery();
             return new Credit(resultSet);
@@ -22,7 +24,9 @@ public class CreditDAO implements DAO<Credit> {
 
     @Override
     public List<Credit> getAll() throws SQLException {
-        PreparedStatement statement = ConnectionPool.getConnection().prepareStatement(resourceBundle.getString("Credit.all"));
+        PreparedStatement statement = ConnectionPool
+                .getConnection()
+                .prepareStatement(resourceBundle.getString("Credit.all"));
         ResultSet resultSet =  statement.executeQuery();
         List<Credit>list= new ArrayList<>();
         while(resultSet.next()){

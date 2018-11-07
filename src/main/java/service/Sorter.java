@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Sorter {
+public final class Sorter {
     public static Map<String,Comparator> map= new HashMap<>();
     static {
         map.put("bankName",Comparator.comparing(Credit::getBankName));
@@ -27,5 +27,5 @@ public class Sorter {
         map.put("DminMoneyQuantity",Comparator.comparing(Deposit::getMinMoneyQuantity));
         map.put("DmaxMoneyQuantity",Comparator.comparing(Deposit::getMaxMoneyQuantity));
     }
-
+    private Sorter(){}
 }
