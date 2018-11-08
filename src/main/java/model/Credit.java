@@ -4,6 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
+/**
+ * entity for Credit
+ * have only getters and setters, allArgsConstructor, noArgsConstructor, equals,hashcode,to string methods
+ */
 public class Credit {
     private long id;
 

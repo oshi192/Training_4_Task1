@@ -17,6 +17,8 @@ public class ConnectionTest {
                     resourceBundle.getString("password"));
             connection.prepareStatement("select * from Credit");
             assertTrue(true);
+            connection.prepareStatement("select * from Deposit");
+            assertTrue(true);
         } catch (Exception e) {
             assertTrue(false);
         }

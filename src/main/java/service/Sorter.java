@@ -7,26 +7,35 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class contains only 1 field :  map with comparators to credit and deposits class
+ * @see model.Credit
+ * @see model.Deposit
+ */
+
 public final class Sorter {
-    public static Map<String,Comparator> map= new HashMap<>();
+    public static Map<String, Comparator> mapSort = new HashMap<>();
+
     static {
-        map.put("bankName",Comparator.comparing(Credit::getBankName));
-        map.put("firstInstallmentC",Comparator.comparing(Credit::getFirstInstallmentC));
-        map.put("insurancePrcntC",Comparator.comparing(Credit::getInsurancePrcntC));
-        map.put("commission",Comparator.comparing(Credit::getCommission));
-        map.put("minMoneyQuantity",Comparator.comparing(Credit::getMinMoneyQuantity));
-        map.put("maxMoneyQuantity",Comparator.comparing(Credit::getMaxMoneyQuantity));
-        map.put("minMonth",Comparator.comparing(Credit::getMinMonth));
-        map.put("maxMonth",Comparator.comparing(Credit::getMaxMonth));
-        map.put("bankNameD",Comparator.comparing(Deposit::getBankName));
-        map.put("prcntInOneMonthUAH",Comparator.comparing(Deposit::getPrcntInOneMonthUAH));
-        map.put("prcntInSixMonthUAH",Comparator.comparing(Deposit::getPrcntInSixMonthUAH));
-        map.put("prcntInTwelveMonthUAH",Comparator.comparing(Deposit::getPrcntInTwelveMonthUAH));
-        map.put("prcntInOneMonthUSD",Comparator.comparing(Deposit::getPrcntInOneMonthUSD));
-        map.put("prcntInSixMonthUSD",Comparator.comparing(Deposit::getPrcntInSixMonthUSD));
-        map.put("prcntInTwelveMonthUSD",Comparator.comparing(Deposit::getPrcntInTwelveMonthUSD));
-        map.put("DminMoneyQuantity",Comparator.comparing(Deposit::getMinMoneyQuantity));
-        map.put("DmaxMoneyQuantity",Comparator.comparing(Deposit::getMaxMoneyQuantity));
+        mapSort.put("bankName", Comparator.comparing(Credit::getBankName));
+        mapSort.put("firstInstallmentC", Comparator.comparing(Credit::getFirstInstallmentC));
+        mapSort.put("insurancePrcntC", Comparator.comparing(Credit::getInsurancePrcntC));
+        mapSort.put("commission", Comparator.comparing(Credit::getCommission));
+        mapSort.put("minMoneyQuantity", Comparator.comparing(Credit::getMinMoneyQuantity));
+        mapSort.put("maxMoneyQuantity", Comparator.comparing(Credit::getMaxMoneyQuantity));
+        mapSort.put("minMonth", Comparator.comparing(Credit::getMinMonth));
+        mapSort.put("maxMonth", Comparator.comparing(Credit::getMaxMonth));
+        mapSort.put("bankNameD", Comparator.comparing(Deposit::getBankName));
+        mapSort.put("prcntInOneMonthUAH", Comparator.comparing(Deposit::getPrcntInOneMonthUAH));
+        mapSort.put("prcntInSixMonthUAH", Comparator.comparing(Deposit::getPrcntInSixMonthUAH));
+        mapSort.put("prcntInTwelveMonthUAH", Comparator.comparing(Deposit::getPrcntInTwelveMonthUAH));
+        mapSort.put("prcntInOneMonthUSD", Comparator.comparing(Deposit::getPrcntInOneMonthUSD));
+        mapSort.put("prcntInSixMonthUSD", Comparator.comparing(Deposit::getPrcntInSixMonthUSD));
+        mapSort.put("prcntInTwelveMonthUSD", Comparator.comparing(Deposit::getPrcntInTwelveMonthUSD));
+        mapSort.put("DminMoneyQuantity", Comparator.comparing(Deposit::getMinMoneyQuantity));
+        mapSort.put("DmaxMoneyQuantity", Comparator.comparing(Deposit::getMaxMoneyQuantity));
     }
-    private Sorter(){}
+
+    private Sorter() {
+    }
 }

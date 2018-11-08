@@ -1,6 +1,7 @@
 package jdbc;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.apache.log4j.Logger;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -11,7 +12,6 @@ import java.util.ResourceBundle;
 public class ConnectionPool {
 
     private static DataSource dataSource;
-
     static {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("dataBase_mySql");
         BasicDataSource ds = new BasicDataSource();
@@ -25,8 +25,7 @@ public class ConnectionPool {
     private ConnectionPool() {
     }
     public static Connection getConnection() throws SQLException {
-        return  dataSource.getConnection();
+            return  dataSource.getConnection();
     }
-
 
 }

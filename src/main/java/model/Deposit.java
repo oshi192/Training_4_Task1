@@ -3,7 +3,10 @@ package model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
-
+/**
+ * entity for Deposit
+ * have only getters and setters, allArgsConstructor, noArgsConstructor, equals,hashcode,to string methods
+ */
 public class Deposit {
     private long id;
 
