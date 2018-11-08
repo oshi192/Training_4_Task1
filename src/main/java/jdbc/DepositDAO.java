@@ -13,20 +13,21 @@ import java.util.ResourceBundle;
 
 /**
  * Class with CRUD operations
+ *
  * @see jdbc.DAO
  */
 public class DepositDAO implements DAO<Deposit> {
-    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("sql");
+    private static ResourceBundle sqlResource = ResourceBundle.getBundle("sql");
 
     @Override
     public Deposit get(int id) throws SQLException {
         Deposit deposit = null;
         try (Connection connection = ConnectionPool.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(resourceBundle.getString("Deposit.id"));
+            PreparedStatement statement = connection.prepareStatement(sqlResource.getString("Deposit.id"));
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             deposit = new Deposit(resultSet);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             logger.error("cannot execute query deposit.getById", e);
         }
         return deposit;//todo change nullpoinerex to myEx
@@ -34,9 +35,9 @@ public class DepositDAO implements DAO<Deposit> {
 
     @Override
     public List<Deposit> getAll() throws SQLException {
-        List<Deposit>list= new ArrayList<>();
+        List<Deposit> list = new ArrayList<>();
         try (Connection connection = ConnectionPool.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(resourceBundle.getString("Deposit.all"));
+            PreparedStatement statement = connection.prepareStatement(sqlResource.getString("Deposit.all"));
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 list.add(new Deposit(resultSet));

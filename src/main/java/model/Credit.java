@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * entity for Credit
- * have only getters and setters, allArgsConstructor, noArgsConstructor, equals,hashcode,to string methods
+ * have only getters and setters, allArgsConstructor, noArgsConstructor, to string methods
  */
 public class Credit {
     private long id;
@@ -155,30 +155,5 @@ public class Credit {
                 ", minMonth=" + minMonth +
                 ", maxMonth=" + maxMonth +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Credit)) return false;
-        Credit credit = (Credit) o;
-        return getFirstInstallmentC() == credit.getFirstInstallmentC() &&
-                getInsurancePrcntC() == credit.getInsurancePrcntC() &&
-                getCommission() == credit.getCommission() &&
-                getPrcntInMounth() == credit.getPrcntInMounth() &&
-                isTopUpAccountImmediately() == credit.isTopUpAccountImmediately() &&
-                getMinMoneyQuantity() == credit.getMinMoneyQuantity() &&
-                getMaxMoneyQuantity() == credit.getMaxMoneyQuantity() &&
-                getMinMonth() == credit.getMinMonth() &&
-                getMaxMonth() == credit.getMaxMonth() &&
-                getBankName() == credit.getBankName();
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(getBankName(), getFirstInstallmentC(), getInsurancePrcntC(),
-                getCommission(), getPrcntInMounth(), isTopUpAccountImmediately(), getMinMoneyQuantity(),
-                getMaxMoneyQuantity(), getMinMonth(), getMaxMonth());
     }
 }

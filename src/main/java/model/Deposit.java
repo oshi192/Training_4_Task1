@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 /**
  * entity for Deposit
- * have only getters and setters, allArgsConstructor, noArgsConstructor, equals,hashcode,to string methods
+ * have only getters and setters, allArgsConstructor, noArgsConstructor, to string methods
  */
 public class Deposit {
     private long id;
@@ -155,28 +155,5 @@ public class Deposit {
                 ", minMoneyQuantity=" + minMoneyQuantity +
                 ", maxMoneyQuantity=" + maxMoneyQuantity +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Deposit)) return false;
-        Deposit deposit = (Deposit) o;
-        return prcntInOneMonthUAH == deposit.prcntInOneMonthUAH &&
-                prcntInSixMonthUAH == deposit.prcntInSixMonthUAH &&
-                prcntInTwelveMonthUAH == deposit.prcntInTwelveMonthUAH &&
-                prcntInOneMonthUSD == deposit.prcntInOneMonthUSD &&
-                prcntInSixMonthUSD == deposit.prcntInSixMonthUSD &&
-                prcntInTwelveMonthUSD == deposit.prcntInTwelveMonthUSD &&
-                takeOffImmediately == deposit.takeOffImmediately &&
-                minMoneyQuantity == deposit.minMoneyQuantity &&
-                maxMoneyQuantity == deposit.maxMoneyQuantity &&
-                bankName == deposit.bankName;
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(bankName, prcntInOneMonthUAH, prcntInSixMonthUAH, prcntInTwelveMonthUAH, prcntInOneMonthUSD, prcntInSixMonthUSD, prcntInTwelveMonthUSD, takeOffImmediately, minMoneyQuantity, maxMoneyQuantity);
     }
 }
