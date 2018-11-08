@@ -23,6 +23,7 @@ public final class Sorter {
         map.put("prcntInSixMonthUAH",Comparator.comparing(Deposit::getPrcntInSixMonthUAH));
         map.put("prcntInTwelveMonthUAH",Comparator.comparing(Deposit::getPrcntInTwelveMonthUAH));
         map.put("prcntInOneMonthUSD",Comparator.comparing(Deposit::getPrcntInOneMonthUSD));
+        map.put("prcntInSixMonthUSD",Comparator.comparing(Deposit::getPrcntInSixMonthUSD));
         map.put("prcntInTwelveMonthUSD",Comparator.comparing(Deposit::getPrcntInTwelveMonthUSD));
         map.put("DminMoneyQuantity",Comparator.comparing(Deposit::getMinMoneyQuantity));
         map.put("DmaxMoneyQuantity",Comparator.comparing(Deposit::getMaxMoneyQuantity));

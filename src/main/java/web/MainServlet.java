@@ -22,10 +22,12 @@ public class MainServlet extends HttpServlet {
     private CreditDAO creditDAO;
     private DepositDAO depositDAO;
     private List<Deposit> deposits;
+    private List<Deposit> depositsTmp;
     private List<Credit> credits;
+    private List<Credit> creditsTmp;
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         creditDAO = new CreditDAO();
         depositDAO = new DepositDAO();
         try {
@@ -39,21 +41,9 @@ public class MainServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getParameter("CsortBy") != null) {
-            credits = (List<Credit>) credits.stream()
-                    .sorted(Sorter.map.get(request.getParameter("CsortBy")))
-                    .collect(Collectors.toList());
-            logger.info("sorting credits by " + request.getParameter("CsortBy"));
-        }
-        if (request.getParameter("DsortBy") != null) {
-            deposits = (List<Deposit>) deposits.stream()
-                    .sorted(Sorter.map.get(request.getParameter("DsortBy")))
-                    .collect(Collectors.toList());
-            logger.info("sorting deposits by " + request.getParameter("DsortBy"));
-
-        }
-        request.setAttribute("deposits", deposits);
-        request.setAttribute("credits", credits);
+        canSort(request);
+        request.setAttribute("deposits", depositsTmp);
+        request.setAttribute("credits", creditsTmp);
         request.getRequestDispatcher(index).forward(request, response);
     }
 
@@ -65,6 +55,28 @@ public class MainServlet extends HttpServlet {
         if (req.getParameter("depositAnswer") != null) {
             logger.info("from get >> deposit id : " + req.getParameter("depositAnswer"));
         }
+        if(req.getParameter("buttonCredit")!=null){
+            //todo filter credit
+        }
+        if(req.getParameter("buttonDeposit")!=null){
+            //todo filterdeposit
+        }
         doGet(req, resp);
+    }
+
+    private void canSort(HttpServletRequest request){
+        if (request.getParameter("CsortBy") != null) {
+            creditsTmp = (List<Credit>) credits.stream()
+                    .sorted(Sorter.map.get(request.getParameter("CsortBy")))
+                    .collect(Collectors.toList());
+            logger.info("sorting credits by " + request.getParameter("CsortBy"));
+        }
+        if (request.getParameter("DsortBy") != null) {
+            depositsTmp = (List<Deposit>) deposits.stream()
+                    .sorted(Sorter.map.get(request.getParameter("DsortBy")))
+                    .collect(Collectors.toList());
+            logger.info("sorting deposits by " + request.getParameter("DsortBy"));
+
+        }
     }
 }

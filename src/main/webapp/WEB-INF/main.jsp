@@ -7,6 +7,9 @@
         table {
             border-collapse: collapse;
         }
+        .filter{
+        max-width:100px;
+        }
         table, th, td {
         border: 1px solid black;
         }
@@ -15,17 +18,28 @@
 <body>
 <form method="post" action="">
     <h2>Credits</h2>
-
     <table>
+        <tr>
+          <td><input type="submit" value="go" name="buttonCredit"></td>
+          <td></td>
+          <td><input class="filter" type="number" name="filter_firstInstallmentC_start"><input class="filter" type="number" name="filter_firstInstallmentC_end"></td>
+          <td><input class="filter" type="number" name="filter_insurancePrcntC_start"><input class="filter" type="number" name="filter_insurancePrcntC_end"></td>
+          <td><input class="filter" type="number" name="filter_commission_start"><input class="filter" type="number" name="filter_commission_end"></td>
+          <td></td>
+          <td><input class="filter" type="number" name="filter_minMoneyQuantity_start"><input class="filter" type="number" name="filter_minMoneyQuantity_end"></td>
+          <td><input class="filter" type="number" name="filter_maxMoneyQuantity_start"><input class="filter" type="number" name="filter_maxMoneyQuantity_end"></td>
+          <td><input class="filter" type="number" name="filter_minMonth_start"><input class="filter" type="number" name="filter_minMonth_end"></td>
+          <td><input class="filter" type="number" name="filter_maxMonth_start"><input class="filter" type="number" name="filter_maxMonth_end"></td>
+        </tr>
         <tr>
           <td></td>
           <td><a href="?CsortBy=bankName">Bank</a></td>
-          <td><a href="?CsortBy=firstInstallmentC">firstInstallmentC</a></td>
-          <td><a href="?CsortBy=insurancePrcntC">insurancePrcntC</a></td>
+          <td><a href="?CsortBy=firstInstallmentC">firstInstallment</a></td>
+          <td><a href="?CsortBy=insurancePrcntC">insurancePrcnt</a></td>
           <td><a href="?CsortBy=commission">commission</a></td>
-          <td>topUpAccountImmediately</td>
-          <td><a href="?CsortBy=minMoneyQuantity">minMoneyQuantity%</a></td>
-          <td><a href="?CsortBy=maxMoneyQuantity">maxMoneyQuantity</a></td>
+          <td>top Up Account Immediately</td>
+          <td><a href="?CsortBy=minMoneyQuantity">minMoney</a></td>
+          <td><a href="?CsortBy=maxMoneyQuantity">maxMoney</a></td>
           <td><a href="?CsortBy=minMonth">minMonth</a></td>
           <td><a href="?CsortBy=maxMonth">maxMonth</a></td>
         </tr>
@@ -44,10 +58,21 @@
             </tr>
         </c:forEach>
     </table>
-
     <h2>Deposits</h2>
-
     <table>
+        <tr>
+          <td><input type="submit" value="go" name="buttonDeposit"></td>
+          <td></td>
+          <td><input class="filter" type="number" name="filter_prcntInOneMonthUAH_start"><input class="filter" type="number" name="filter_prcntInOneMonthUAH_end"></td>
+          <td><input class="filter" type="number" name="filter_prcntInSixMonthUAH_start"><input class="filter" type="number" name="filter_prcntInSixMonthUAH_end"></td>
+          <td><input class="filter" type="number" name="filter_prcntInTwelveMonthUAH_start"><input class="filter" type="number" name="filter_prcntInTwelveMonthUAH_end"></td>
+          <td><input class="filter" type="number" name="filter_prcntInOneMonthUSD_start"><input class="filter" type="number" name="filter_prcntInOneMonthUSD_end"></td>
+          <td><input class="filter" type="number" name="filter_prcntInSixMonthUSD_start"><input class="filter" type="number" name="filter_prcntInSixMonthUSD_end"></td>
+          <td><input class="filter" type="number" name="filter_prcntInTwelveMonthUSD_start"><input class="filter" type="number" name="filter_prcntInTwelveMonthUSD_end"></td>
+          <td></td>
+          <td><input class="filter" type="number" name="filter_DminMoneyQuantity_start"><input class="filter" type="number" name="filter_DminMoneyQuantity_end"></td>
+          <td><input class="filter" type="number" name="filter_DmaxMoneyQuantity_start"><input class="filter" type="number" name="filter_DmaxMoneyQuantity_end"></td>
+        </tr>
         <tr>
           <td></td>
           <td><a href="?DsortBy=bankNameD">Bank</a></td>
@@ -57,9 +82,9 @@
           <td><a href="?DsortBy=prcntInOneMonthUSD">1m% USD</a></td>
           <td><a href="?DsortBy=prcntInSixMonthUSD">6m% USD</a></td>
           <td><a href="?DsortBy=prcntInTwelveMonthUSD">12m% USD</a></td>
-          <td>takeOffImmediately</td>
-          <td><a href="?DsortBy=DminMoneyQuantity">minMoneyQuantity</a></td>
-          <td><a href="?DsortBy=DmaxMoneyQuantity">maxMoneyQuantity</a></td>
+          <td>take Off Immediately</td>
+          <td><a href="?DsortBy=DminMoneyQuantity">minMoney</a></td>
+          <td><a href="?DsortBy=DmaxMoneyQuantity">maxMoney</a></td>
         </tr>
         <c:forEach var="d" items="${requestScope.deposits}">
             <tr>
@@ -77,7 +102,7 @@
             </tr>
         </c:forEach>
     </table>
-        <input type="submit" value="Ok" name="post"><br>
+        <input type="submit" value="Sent" name="choose" method="post"><br>
     </form>
 </body>
 </html>
