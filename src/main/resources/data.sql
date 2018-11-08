@@ -24,9 +24,20 @@ PRIMARY KEY (ID)
 );
 
 CREATE TABLE IF NOT EXISTS Deposit (
-
+ID                      INT AUTO_INCREMENT,
+bankName                VARCHAR(25) NOT NULL,
+prcntInOneMonthUAH      INT NOT NULL,
+prcntInSixMonthUAH      INT NOT NULL,
+prcntInTwelveMonthUAH   INT NOT NULL,
+prcntInOneMonthUSD      INT NOT NULL,
+prcntInSixMonthUSD      INT NOT NULL,
+prcntInTwelveMonthUSD   INT NOT NULL,
+takeOffImmediately      BOOLEAN NOT NULL,
+minMoneyQuantity        INT NOT NULL,
+maxMoneyQuantity        INT NOT NULL,
 PRIMARY KEY (ID)
 );
+
 INSERT INTO Credit (bankName,firstInstallmentC,insurancePrcntC,commission,prcntInMounth,topUpAccountImmediately,minMoneyQuantity,maxMoneyQuantity,minMonth,maxMonth)
 VALUES ('PrivatBank',10,25,876,1,true,5000,25000,6,24);
 INSERT INTO Credit (bankName,firstInstallmentC,insurancePrcntC,commission,prcntInMounth,topUpAccountImmediately,minMoneyQuantity,maxMoneyQuantity,minMonth,maxMonth)
